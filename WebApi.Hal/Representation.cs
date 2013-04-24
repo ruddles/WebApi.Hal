@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using WebApi.Hal.Interfaces;
 
@@ -97,6 +98,16 @@ namespace WebApi.Hal
 
         [JsonProperty("_links")]
         public IList<Link> Links { get; set; }
+
+        [OnSerializing]
+        private void SetValuesOnSerializing(StreamingContext context)
+        {
+            Links.Insert(0, new Link
+            {
+                Rel = "self",
+                Href = Href
+            });
+        }
 
         protected internal abstract void CreateHypermedia();
     }

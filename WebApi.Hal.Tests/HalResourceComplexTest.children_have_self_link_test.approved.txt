@@ -1,0 +1,33 @@
+{
+  "Organisations": [
+    {
+      "Id": 1,
+      "Name": "first",
+      "_links": {
+        "self": {
+          "href": "/api/organisations/1"
+        },
+        "people": {
+          "href": "/api/organisations/1/people"
+        }
+      }
+    },
+    {
+      "Id": 2,
+      "Name": "second",
+      "_links": {
+        "self": {
+          "href": "/api/organisations/2"
+        },
+        "people": {
+          "href": "/api/organisations/2/people"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "/organisations"
+    }
+  }
+}

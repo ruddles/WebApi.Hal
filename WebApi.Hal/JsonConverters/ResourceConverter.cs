@@ -10,12 +10,6 @@ namespace WebApi.Hal.JsonConverters
         {
             var resource = (Representation)value;
 
-            resource.Links.Insert(0, new Link
-                                   {
-                                       Rel = "self",
-                                       Href = resource.Href
-                                   });
-
             serializer.Converters.Remove(this);
             serializer.Serialize(writer, resource);
             serializer.Converters.Add(this);
