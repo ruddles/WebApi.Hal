@@ -157,6 +157,10 @@ namespace WebApi.Hal
                 writer.WriteStartElement("link");
                 writer.WriteAttributeString("rel", link.Rel);
                 writer.WriteAttributeString("href", link.Href);
+                if (!string.IsNullOrEmpty(link.Title))
+                {
+                    writer.WriteAttributeString("title", link.Title);
+                }
                 writer.WriteEndElement();
             }
 

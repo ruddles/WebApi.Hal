@@ -24,6 +24,12 @@ namespace WebApi.Hal.JsonConverters
                     writer.WriteValue(true);
                 }
 
+                if (!string.IsNullOrEmpty(link.Title))
+                {
+                    writer.WritePropertyName("title");
+                    writer.WriteValue(link.Title);
+                }
+
                 writer.WriteEndObject();
             }
             writer.WriteEndObject();

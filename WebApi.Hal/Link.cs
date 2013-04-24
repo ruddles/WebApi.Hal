@@ -9,10 +9,14 @@ namespace WebApi.Hal
         public Link()
         { }
 
-        public Link(string rel, string href)
+        public Link(string rel, string href) : this(rel, href, null)
+        {}
+
+        public Link(string rel, string href, string title)
         {
             Rel = rel;
             Href = href;
+            Title = title;
             if (href != null)
                 IsTemplated = Regex.Match(href, @"{\w+}", RegexOptions.Compiled).Success;
         }
@@ -22,6 +26,8 @@ namespace WebApi.Hal
         public string Href { get; set; }
 
         public bool IsTemplated { get; set; }
+
+        public string Title { get; set; }
 
         /// <summary>
         /// If this link is templated, you can use this method to make a non templated copy
